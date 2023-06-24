@@ -1,8 +1,7 @@
 pipeline {
     agent {
-        docker { 
-//               image 'node:18.16.0-alpine' 
-                image 'docker.io/wachira90/node:16.13.2' 
+        docker {
+                image 'wachira90/node:16.13.2' 
             }
     }
 
@@ -12,16 +11,18 @@ pipeline {
                 sh 'node --version'
             }
         }
-    }
-
-    stages {
+        
         stage('CHECK YARN VERSION') {
             steps {
                 sh 'yarn -v'
             }
         }
+
+        stage('SUCCESS') {
+            steps {
+                echo "test success $WORKSPACE"
+            }
+        }
+        
     }
-
-
-
 }
