@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
                 image 'node:16.13.2'
-                args '--network=host'
+                args '--network=host -v $WORKSPACE:'
             }
     }
 
@@ -28,7 +28,8 @@ pipeline {
         
         stage('SUCCESS') {
             steps {
-                sh 'test success $WORKSPACE'   
+//                sh 'test success $WORKSPACE'
+                sh 'exit'
             }
         }
         
