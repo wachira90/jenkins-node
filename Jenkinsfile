@@ -20,7 +20,7 @@ pipeline {
 
         stage('SUCCESS') {
             steps {
-                echo "test success $WORKSPACE"
+                sh 'test success $WORKSPACE'
             }
         }
         
