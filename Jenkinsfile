@@ -28,8 +28,8 @@ pipeline {
         
         stage('SUCCESS') {
             steps {
-//                sh 'test success $WORKSPACE'
-                sh 'exit'
+                sh 'test success $WORKSPACE'
+//                sh 'exit'
             }
         }
         
