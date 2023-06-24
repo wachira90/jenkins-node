@@ -15,6 +15,7 @@ pipeline {
         stage('CHECK YARN VERSION') {
             steps {
                 sh 'yarn -v'
+                sh 'yarn install'
             }
         }
 
