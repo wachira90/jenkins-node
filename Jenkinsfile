@@ -18,10 +18,15 @@ pipeline {
             }
         }
 
+        stage('CHECK ls') {
+            steps {
+                sh 'ls -la'
+            }
+        }
+        
         stage('SUCCESS') {
             steps {
-                sh 'test success $WORKSPACE'
-                sh 'ls -la'
+                sh 'test success $WORKSPACE'   
             }
         }
         
