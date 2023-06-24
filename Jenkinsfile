@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-                image 'wachira90/node:16.13.2' 
+                image 'node:16.13.2' 
             }
     }
 
