@@ -12,6 +12,7 @@ pipeline {
             steps {
                 sh 'node -v'
                 sh 'yarn -v'
+                sh 'pwd'
 //                sh 'chmod 0775 .cache/'
             }
         }
