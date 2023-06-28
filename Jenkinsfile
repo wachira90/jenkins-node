@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
                 image 'node:16.13.2'
-                args '-v ${WORKSPACE}/.cache/:/.cache/ --network=host'
+                args '-v ${WORKSPACE}/.cache/:/.cache/:rw --network=host'
             }
     }
 
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh 'node -v'
                 sh 'yarn -v'
-                sh 'sudo chmod 0775 .cache/'
+//                sh 'chmod 0775 .cache/'
             }
         }
 
