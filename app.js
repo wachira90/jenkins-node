@@ -4,6 +4,7 @@ const app = express()
 const port = 10000
 
 app.get('/', (req, res) => {
+  console.log('GET PATH => /');
   res.send('Hello World!')
 })
 
