@@ -5,7 +5,7 @@ const port = 10000
 
 app.get('/', (req, res) => {
   console.log('GET PATH => /');
-  res.send('Hello World!')
+  res.send('Hello World! 2023-06-28 2126')
 })
 
 app.listen(port, () => {
