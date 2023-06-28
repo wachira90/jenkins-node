@@ -7,20 +7,28 @@ pipeline {
     }
 
     stages {
-        stage('CHECK NODE VERSION') {
+        
+        stage('CHECK VERSION') {
             steps {
-                sh 'node --version'
+                sh 'node -v'
+                sh 'yarn -v'
+            }
+        }
+
+        stage('DELETE MODULE') {
+            steps {
+                sh 'rm -rf node_modules/'
+                sh 'ls -la'
             }
         }
         
-        stage('CHECK YARN VERSION') {
+        stage('INSTALL') {
             steps {
-                sh 'yarn -v'
                 sh 'yarn install'
             }
         }
 
-        stage('CHECK ls') {
+        stage('CHECK') {
             steps {
                 sh 'ls -la'
             }
