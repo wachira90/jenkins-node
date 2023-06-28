@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
                 image 'node:16.13.2'
-                args '--network=host'
+                args '-v ${WORKSPACE}/.cache/:/.cache/ --network=host'
             }
     }
 
