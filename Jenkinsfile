@@ -1,34 +1,42 @@
 pipeline {
-    agent {
-        docker {
-                image 'node:16.13.2'
-                args '-v ${WORKSPACE}/.cache/:/.cache/:rw --network=host'
-            }
+    agent any
+    //agent {
+        // docker {
+        //         image 'node:16.13.2'
+        //         args '-v ${WORKSPACE}/.cache/:/.cache/:rw --network=host'
+        //     }
+    //}
+
+    environment {
+        ECR_STAGE       = 'dev'
+        ECR_NAME        = 'opa_front'
+        ECR_URL         = "wachira90/test-node:v${BUILD_NUMBER}"
+        GIT_PATH        = '/home/ubuntu/.jenkins/workspace/node16/'
     }
 
+    
     stages {
         
-        stage('CHECK VERSION') {
-            steps {
-                sh 'node -v'
-                sh 'yarn -v'
-                sh 'pwd'
-//                sh 'chmod 0775 .cache/'
-            }
-        }
+        // stage('CHECK VERSION') {
+        //     steps {
+        //         sh 'node -v'
+        //         sh 'yarn -v'
+        //         sh 'pwd'
+        //     }
+        // }
 
-        stage('DELETE MODULE') {
-            steps {
-                sh 'rm -rf node_modules/'
-                sh 'ls -la'
-            }
-        }
+        // stage('DELETE MODULE') {
+        //     steps {
+        //         sh 'rm -rf node_modules/'
+        //         sh 'ls -la'
+        //     }
+        // }
         
-        stage('INSTALL') {
-            steps {
-                sh 'yarn install'
-            }
-        }
+        // stage('INSTALL') {
+        //     steps {
+        //         sh 'yarn install'
+        //     }
+        // }
 
         stage('CHECK') {
             steps {
