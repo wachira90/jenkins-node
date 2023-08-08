@@ -35,10 +35,16 @@ pipeline {
                 sh 'ls -la'
             }
         }
-        
+
+        stage('BUILD') {
+            steps {
+                sh "docker build -t wachira90/test-node:v${BUILD_NUMBER}"
+            }
+        }
+
         stage('SUCCESS') {
             steps {
-//                sh 'test success $WORKSPACE'
+                sh "echo BUILD_NUMBER => ${BUILD_NUMBER}"
                 sh 'exit'
             }
         }
