@@ -38,7 +38,7 @@ pipeline {
 
         stage('BUILD') {
             steps {
-                sh "docker build -t wachira90/test-node:v${BUILD_NUMBER}"
+                sh "docker build -t wachira90/test-node:v${BUILD_NUMBER} . --no-cache"
             }
         }
 
