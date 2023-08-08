@@ -16,7 +16,17 @@ pipeline {
 
     
     stages {
-        
+
+        stage('GIT PULL') {
+            steps {
+                ws("${env.GIT_PATH}"){
+                    sh 'date'
+                    sh 'git pull'
+                    sh 'ls -la'
+                }
+            }
+        }
+
         // stage('CHECK VERSION') {
         //     steps {
         //         sh 'node -v'
