@@ -7,12 +7,12 @@ pipeline {
         //     }
     //}
 
-    // environment {
+    environment {
     //     ECR_STAGE       = 'dev'
     //     ECR_NAME        = 'opa_front'
     //     ECR_URL         = "wachira90/test-node:v${BUILD_NUMBER}"
-    //     GIT_PATH        = '/home/ubuntu/.jenkins/workspace/node16/'
-    // }
+        GIT_PATH        = '/home/ubuntu/.jenkins/workspace/node16/'
+    }
 
     
     stages {
@@ -50,13 +50,17 @@ pipeline {
 
         stage('CHECK') {
             steps {
-                sh 'ls -la'
+                ws("${env.GIT_PATH}"){
+                    sh 'ls -la'
+                }
             }
         }
 
         stage('BUILD') {
             steps {
+                ws("${env.GIT_PATH}"){
                 sh "docker build -t wachira90/test-node:v${BUILD_NUMBER} . --no-cache"
+                }
             }
         }
 
