@@ -7,12 +7,12 @@ pipeline {
         //     }
     //}
 
-    environment {
-        ECR_STAGE       = 'dev'
-        ECR_NAME        = 'opa_front'
-        ECR_URL         = "wachira90/test-node:v${BUILD_NUMBER}"
-        GIT_PATH        = '/home/ubuntu/.jenkins/workspace/node16/'
-    }
+    // environment {
+    //     ECR_STAGE       = 'dev'
+    //     ECR_NAME        = 'opa_front'
+    //     ECR_URL         = "wachira90/test-node:v${BUILD_NUMBER}"
+    //     GIT_PATH        = '/home/ubuntu/.jenkins/workspace/node16/'
+    // }
 
     
     stages {
